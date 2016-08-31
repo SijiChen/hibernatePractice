@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.halalmeatdepot.domain.Order" table="ORDER" node="order">
+        <id name="id" column="ORDER_ID" type="long">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">ORDER_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="customer" column="customer_id" node="customer/@id"/>
+    </class>
+
+
+</hibernate-mapping>
