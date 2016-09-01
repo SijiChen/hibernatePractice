@@ -2,6 +2,7 @@ package com.halalmeatdepot.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by sjchen on 8/31/16.
@@ -12,6 +13,15 @@ public class Customer implements Serializable{
     private String lastName;
     private String email;
     private Date registerDate;
+    private List<Order> orders;
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public long getId() {
         return id;
