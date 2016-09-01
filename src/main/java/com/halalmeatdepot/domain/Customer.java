@@ -14,6 +14,15 @@ public class Customer implements Serializable{
     private String email;
     private Date registerDate;
     private List<Order> orders;
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public List<Order> getOrders() {
         return orders;

@@ -4,14 +4,14 @@
 <hibernate-mapping>
     <class name="com.halalmeatdepot.domain.Customer" table="CUSTOMER" >
         <id name="id" column="CUSTOMER_ID" type="long">
-            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-                <param name="sequence_name">CUSTOMER_SEQ</param>
+            <generator class="native">
             </generator>
         </id>
         <property name="email" column="EMAIL" type="string" length="255" not-null="true" generated="never" lazy="false"/>
         <property name="firstName" column="FIRST_NAME" type="java.lang.String" length="50" generated="never" lazy="false"/>
         <property name="lastName" column="LAST_NAME" type="java.lang.String" length="50" generated="never" lazy="false"/>
         <property name="registerDate" column="Create_Date" type="timestamp" not-null="true" generated="never" lazy="false"/>
+        <one-to-one name="address" class="com.halalmeatdepot.domain.Address" cascade="save-update"/>
         <list cascade="all"  name="orders" table="order">
             <key column="customer_id"/>
             <list-index base="0" column="idx"/>

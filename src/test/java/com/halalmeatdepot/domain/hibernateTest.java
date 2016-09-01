@@ -27,11 +27,19 @@ public class hibernateTest {
 
     @Test
     @Rollback(value = false)
-    public void testCreateCustumer() {
+    public void testCreateCustomer() {
         Session session = sessionFactory.getCurrentSession();
+        Address address =new Address();
+        address.setCity("aldie");
+        address.setState("va");
+
         Customer customer = new Customer();
         customer.setEmail("siji2@gmail.com");
         customer.setRegisterDate(new Date());
+
+        address.setCustomer(customer);
+        customer.setAddress(address);
+
         session.save(customer);
     }
     @Test

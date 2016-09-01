@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.halalmeatdepot.domain.Address" table="Address" >
+        <id name="id" column="Customer_ID" type="long">
+            <generator class="foreign">
+                <param name="property">customer</param>
+            </generator>
+        </id>
+        <property name="street1" column="street1" type="string" length="255" not-null="false" generated="never" lazy="false"/>
+        <property name="street2" column="street2" type="java.lang.String" length="255" generated="never" lazy="false"/>
+        <property name="city" column="city" type="java.lang.String" length="50" generated="never" lazy="false"/>
+        <property name="state" column="state" type="java.lang.String" not-null="false" generated="never" lazy="false"/>
+        <property name="zipcode" column="zipcode" type="java.lang.String" not-null="false" generated="never" lazy="false"/>
+        <one-to-one name="customer" class="com.halalmeatdepot.domain.Customer" constrained="true"/>
+
+    </class>
+
+
+</hibernate-mapping>
