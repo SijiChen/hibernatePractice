@@ -2,19 +2,38 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.halalmeatdepot.domain.Address" table="Address" >
-        <id name="id" column="Customer_ID" type="long">
-            <generator class="foreign">
-                <param name="property">customer</param>
+    <class name="com.halalmeatdepot.domain.Address" table="Address">
+        <id name="id" column="ADDRESS_ID" type="long">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">ADDR_SEQ</param>
             </generator>
         </id>
-        <property name="street1" column="street1" type="string" length="255" not-null="false" generated="never" lazy="false"/>
+        <property name="street1" column="street1" type="string" length="255" not-null="false" generated="never"
+                  lazy="false"/>
         <property name="street2" column="street2" type="java.lang.String" length="255" generated="never" lazy="false"/>
         <property name="city" column="city" type="java.lang.String" length="50" generated="never" lazy="false"/>
-        <property name="state" column="state" type="java.lang.String" not-null="false" generated="never" lazy="false"/>
-        <property name="zipcode" column="zipcode" type="java.lang.String" not-null="false" generated="never" lazy="false"/>
-        <one-to-one name="customer" class="com.halalmeatdepot.domain.Customer" constrained="true"/>
 
+        <property name="zipcode" column="zipcode" type="java.lang.String" not-null="false" generated="never"
+                  lazy="false"/>
+
+        <property name="addressType" not-null="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.halalmeatdepot.domain.AddressType</param>
+                <param name="useName">true</param>
+            </type>
+        </property>
+
+        <property name="address_state" not-null="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.halalmeatdepot.domain.AddressState</param>
+                <param name="useName">true</param>
+            </type>
+        </property>
+        <many-to-one name="customer"
+                     class="com.halalmeatdepot.domain.Customer"
+                     column="Customer_id"
+                     cascade="save-update"
+                     not-null="true"/>
     </class>
 
 

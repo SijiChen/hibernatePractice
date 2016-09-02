@@ -1,19 +1,25 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping >
-    <class name="com.halalmeatdepot.domain.Order" table="ORDER" >
-        <id name="id" column="ORDER_ID" type="long">
-            <generator class="native"/>
-
+<hibernate-mapping>
+    <class name="com.halalmeatdepot.domain.Order" table="CUSTOMER_ORDER">
+        <id name="id" column="ORDER_ID" type="java.lang.Long">
+            <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+                <param name="sequence_name">ORDER_SEQ</param>
+            </generator>
         </id>
+        <property name="name" column="name"/>
+        <property name="orderedTime" column="ORDER_CREATE_TIME" not-null="true"/>
+        <many-to-one class="com.halalmeatdepot.domain.Customer"
+                     cascade="all"
+                     name="customer"
+                     not-null="true"
+                     column="customer_id"/>
 
-        <many-to-one class="com.halalmeatdepot.domain.Customer" insert="false" update="false"
-                     name="customer"  not-null="true">
-            <column name="customer_id"/>
-        </many-to-one>
-
-        <property name="name" column="name" type="java.lang.String" length="255" generated="never" lazy="false"/>
+        <set name="orderItemSet" cascade="all" inverse="true">
+            <key column="ORDER_ID"/>
+            <one-to-many class="com.halalmeatdepot.domain.OrderItem"/>
+        </set>
     </class>
 
 

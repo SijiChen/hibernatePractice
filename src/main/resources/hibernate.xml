@@ -21,12 +21,8 @@
             <list>
                 <value>com/halalmeatdepot/domain/Customer.hbm.xml</value>
                 <value>com/halalmeatdepot/domain/Order.hbm.xml</value>
-                <!--
-
-                <value>persistence/Department.hbm.xml</value>
-                <value>persistence/Employee.hbm.xml</value>
-                -->
                 <value>com/halalmeatdepot/domain/Address.hbm.xml</value>
+                <value>com/halalmeatdepot/domain/OrderItem.hbm.xml</value>
             </list>
         </property>
 

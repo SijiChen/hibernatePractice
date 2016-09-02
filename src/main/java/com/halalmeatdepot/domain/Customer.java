@@ -1,8 +1,8 @@
 package com.halalmeatdepot.domain;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  * Created by sjchen on 8/31/16.
@@ -12,16 +12,16 @@ public class Customer implements Serializable{
     private String firstName;
     private String lastName;
     private String email;
-    private Date registerDate;
+    private LocalDateTime registerDate;
+    private Set<Address> addressSet;
     private List<Order> orders;
-    private Address address;
 
-    public Address getAddress() {
-        return address;
+    public Set<Address> getAddressSet() {
+        return addressSet;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressSet(Set<Address> addressSet) {
+        this.addressSet = addressSet;
     }
 
     public List<Order> getOrders() {
@@ -64,11 +64,11 @@ public class Customer implements Serializable{
         this.email = email;
     }
 
-    public Date getRegisterDate() {
+    public LocalDateTime getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(Date registerDate) {
+    public void setRegisterDate(LocalDateTime registerDate) {
         this.registerDate = registerDate;
     }
 }
