@@ -6,7 +6,7 @@ package com.halalmeatdepot.domain;
 public class OrderItem {
     private Long id;
     private Order order;
-    private boolean giftwrap;
+    private boolean giftWrap;
 
     public Long getId() {
         return id;
@@ -24,11 +24,27 @@ public class OrderItem {
         this.order = order;
     }
 
-    public boolean isGiftwrap() {
-        return giftwrap;
+    public boolean isGiftWrap() {
+        return giftWrap;
     }
 
-    public void setGiftwrap(boolean giftwrap) {
-        this.giftwrap = giftwrap;
+    public void setGiftWrap(boolean giftwrap) {
+        this.giftWrap = giftwrap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrderItem orderItem = (OrderItem) o;
+
+        return id != null ? id.equals(orderItem.id) : orderItem.id == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

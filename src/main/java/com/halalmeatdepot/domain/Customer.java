@@ -12,9 +12,19 @@ public class Customer implements Serializable{
     private String firstName;
     private String lastName;
     private String email;
+    private String phoneNum;
     private LocalDateTime registerDate;
     private Set<Address> addressSet;
     private List<Order> orders;
+
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
 
     public Set<Address> getAddressSet() {
         return addressSet;
@@ -70,5 +80,24 @@ public class Customer implements Serializable{
 
     public void setRegisterDate(LocalDateTime registerDate) {
         this.registerDate = registerDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (!email.equals(customer.email)) return false;
+        return addressSet != null ? addressSet.equals(customer.addressSet) : customer.addressSet == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = email.hashCode();
+        result = 31 * result + (addressSet != null ? addressSet.hashCode() : 0);
+        return result;
     }
 }
