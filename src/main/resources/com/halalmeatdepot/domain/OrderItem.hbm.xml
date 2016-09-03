@@ -9,6 +9,7 @@
             </generator>
         </id>
         <property name="giftWrap" column="GIFT_WRAP_FLAG"/>
+        <property name="name" column="NAME"/>
         <many-to-one class="com.halalmeatdepot.domain.Order"
                      cascade="save-update"
                      name="order"

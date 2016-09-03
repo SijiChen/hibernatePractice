@@ -2,6 +2,7 @@ package com.halalmeatdepot.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,16 +13,18 @@ public class Order implements Serializable {
     private String name;
     private Customer customer;
     private LocalDateTime orderedTime;
-    private Set<OrderItem> orderItemSet;
+    private List<OrderItem> orderItemSet;
+
+
     public LocalDateTime getOrderedTime() {
         return orderedTime;
     }
 
-    public Set<OrderItem> getOrderItemSet() {
+    public List<OrderItem> getOrderItemSet() {
         return orderItemSet;
     }
 
-    public void setOrderItemSet(Set<OrderItem> orderItemSet) {
+    public void setOrderItemSet(List<OrderItem> orderItemSet) {
         this.orderItemSet = orderItemSet;
     }
 

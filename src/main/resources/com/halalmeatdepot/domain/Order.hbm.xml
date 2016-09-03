@@ -16,10 +16,11 @@
                      not-null="true"
                      column="customer_id"/>
 
-        <set name="orderItemSet" cascade="all" inverse="true">
+        <list name="orderItemSet" cascade="all" inverse="true">
             <key column="ORDER_ID"/>
+            <index column="item_entry" type="integer"/>
             <one-to-many class="com.halalmeatdepot.domain.OrderItem"/>
-        </set>
+        </list>
     </class>
 
 

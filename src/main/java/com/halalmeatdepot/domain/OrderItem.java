@@ -6,7 +6,16 @@ package com.halalmeatdepot.domain;
 public class OrderItem {
     private Long id;
     private Order order;
+    private  String name;
     private boolean giftWrap;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
