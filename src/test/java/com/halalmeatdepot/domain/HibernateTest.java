@@ -76,9 +76,7 @@ public class HibernateTest {
 
         OrderItem itemOne = new OrderItem();
 
-
-        orderOne.setOrderItemSet(new ArrayList<>());
-        orderOne.getOrderItemSet().add(itemOne);
+        orderOne.getOrderItemList().add(itemOne);
 
         itemOne.setOrder(orderOne);
 

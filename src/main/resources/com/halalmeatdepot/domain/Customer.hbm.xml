@@ -14,15 +14,15 @@
                   lazy="false"/>
         <property name="lastName" column="LAST_NAME" type="java.lang.String" length="50" generated="never"
                   lazy="false"/>
-        <property name="registerDate" column="Create_Date" not-null="true" generated="never" lazy="false"/>
-        <property name="phoneNum" column="PHONE_NUMBER" not-null="true"/>
+        <property name="registerDate" column="Create_Date" not-null="false" generated="never" lazy="false"/>
+        <property name="phoneNum" column="PHONE_NUMBER" not-null="false"/>
 
         <set name="addressSet" cascade="all-delete-orphan" inverse="true">
             <key column="customer_id"/>
             <one-to-many class="com.halalmeatdepot.domain.Address"/>
         </set>
 
-        <list name="orders" cascade="all-delete-orphan" inverse="true">
+        <list name="orders" cascade="all" inverse="true">
             <key column="customer_id"/>
             <index column="item_entry" type="integer"/>
             <one-to-many class="com.halalmeatdepot.domain.Order"/>

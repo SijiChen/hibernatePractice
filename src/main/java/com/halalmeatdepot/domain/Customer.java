@@ -15,7 +15,7 @@ public class Customer implements Serializable{
     private String phoneNum;
     private LocalDateTime registerDate;
     private Set<Address> addressSet;
-    private List<Order> orders;
+    private List<Order> orders=new ArrayList<>();
 
 
     public String getPhoneNum() {

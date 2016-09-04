@@ -1,5 +1,6 @@
 package com.halalmeatdepot.domain;
 
+import com.halalmeatdepot.service.CustomerServices;
 import com.halalmeatdepot.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,16 +22,16 @@ import java.util.HashSet;
 @Transactional
 public class ServicesTest {
     @Autowired
-    private OrderService orderService;
+    private CustomerServices customerServices;
 
     @Test
     @Rollback(value = false)
     public void testCreateNewFromService(){
-        Order order = createNew();
-        orderService.create(order);
+        Customer customer = createNew();
+        customerServices.create(customer);
     }
 
-    private Order createNew(){
+    private Customer createNew(){
         Customer customer = new Customer();
         customer.setEmail("siji2@gmail.com");
         customer.setRegisterDate(LocalDateTime.now());
@@ -48,11 +49,10 @@ public class ServicesTest {
         OrderItem itemOne = new OrderItem();
 
 
-        orderOne.setOrderItemSet(new ArrayList<>());
-        orderOne.getOrderItemSet().add(itemOne);
+        orderOne.getOrderItemList().add(itemOne);
 
         itemOne.setOrder(orderOne);
-        return orderOne;
+        return customer;
 
     }
 

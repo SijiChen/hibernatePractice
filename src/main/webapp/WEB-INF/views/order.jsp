@@ -52,7 +52,7 @@
                                <label class="control-label">
                                    Item Name
                                </label>
-                               <form:input cssClass="form-control" path="order.orderItemSet.name"/>
+                               <form:input cssClass="form-control" path="order.orderItemList[0].name"/>
                            </div>
 
                        </div>
@@ -62,7 +62,7 @@
                                <label class="control-label">
                                    Quantity
                                </label>
-                               <form:input cssClass="form-control" path="order.orderItemSet.quantity"/>
+                               <form:input cssClass="form-control" path="order.orderItemList[0].quantity"/>
                            </div>
 
                        </div>
@@ -72,7 +72,7 @@
                                <label class="control-label">
                                    Wrap?
                                </label>
-                               <form:checkbox cssClass="form-control" path="order.orderItemSet.giftWrap"/>
+                               <form:checkbox cssClass="form-control" path="order.orderItemList[0].giftWrap"/>
                            </div>
 
                        </div>
